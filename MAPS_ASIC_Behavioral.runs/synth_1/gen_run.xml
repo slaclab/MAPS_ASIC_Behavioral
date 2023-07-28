@@ -1,0 +1,90 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<GenRun Id="synth_1" LaunchPart="xcku5p-ffvb676-2-e" LaunchTime="1690574099" LaunchIncrCheckpoint="$PPRDIR/../MAPSASIC/MAPSASIC.srcs/utils_1/imports/synth_1/main.dcp">
+  <File Type="PA-TCL" Name="MAPS_ASIC_Behavioral.tcl"/>
+  <File Type="RDS-PROPCONSTRS" Name="MAPS_ASIC_Behavioral_drc_synth.rpt"/>
+  <File Type="REPORTS-TCL" Name="MAPS_ASIC_Behavioral_reports.tcl"/>
+  <File Type="RDS-RDS" Name="MAPS_ASIC_Behavioral.vds"/>
+  <File Type="RDS-UTIL" Name="MAPS_ASIC_Behavioral_utilization_synth.rpt"/>
+  <File Type="RDS-UTIL-PB" Name="MAPS_ASIC_Behavioral_utilization_synth.pb"/>
+  <File Type="RDS-DCP" Name="MAPS_ASIC_Behavioral.dcp"/>
+  <File Type="VDS-TIMINGSUMMARY" Name="MAPS_ASIC_Behavioral_timing_summary_synth.rpt"/>
+  <File Type="VDS-TIMING-PB" Name="MAPS_ASIC_Behavioral_timing_summary_synth.pb"/>
+  <FileSet Name="sources" Type="DesignSrcs" RelSrcDir="$PSRCDIR/sources_1" RelGenDir="$PGENDIR/sources_1">
+    <Filter Type="Srcs"/>
+    <File Path="$PSRCDIR/sources_1/new/Pixel.vhd">
+      <FileInfo>
+        <Attr Name="ImportPath" Val="$PPRDIR/../MAPSASIC/MAPSASIC.srcs/sources_1/new/Pixel.vhd"/>
+        <Attr Name="ImportTime" Val="1690412713"/>
+        <Attr Name="UsedIn" Val="synthesis"/>
+        <Attr Name="UsedIn" Val="simulation"/>
+      </FileInfo>
+    </File>
+    <File Path="$PSRCDIR/sources_1/new/column.vhd">
+      <FileInfo>
+        <Attr Name="ImportPath" Val="$PPRDIR/../MAPSASIC/MAPSASIC.srcs/sources_1/new/column.vhd"/>
+        <Attr Name="ImportTime" Val="1690395384"/>
+        <Attr Name="UsedIn" Val="synthesis"/>
+        <Attr Name="UsedIn" Val="simulation"/>
+      </FileInfo>
+    </File>
+    <File Path="$PSRCDIR/sources_1/new/main.vhd">
+      <FileInfo>
+        <Attr Name="ImportPath" Val="$PPRDIR/../MAPSASIC/MAPSASIC.srcs/sources_1/new/main.vhd"/>
+        <Attr Name="ImportTime" Val="1690411760"/>
+        <Attr Name="UsedIn" Val="synthesis"/>
+        <Attr Name="UsedIn" Val="simulation"/>
+      </FileInfo>
+    </File>
+    <File Path="$PSRCDIR/sources_1/new/mux.vhd">
+      <FileInfo>
+        <Attr Name="ImportPath" Val="$PPRDIR/../MAPSASIC/MAPSASIC.srcs/sources_1/new/mux.vhd"/>
+        <Attr Name="ImportTime" Val="1690412490"/>
+        <Attr Name="UsedIn" Val="synthesis"/>
+        <Attr Name="UsedIn" Val="simulation"/>
+      </FileInfo>
+    </File>
+    <File Path="$PSRCDIR/sources_1/new/shiftreg.vhd">
+      <FileInfo>
+        <Attr Name="ImportPath" Val="$PPRDIR/../MAPSASIC/MAPSASIC.srcs/sources_1/new/shiftreg.vhd"/>
+        <Attr Name="ImportTime" Val="1690390927"/>
+        <Attr Name="UsedIn" Val="synthesis"/>
+        <Attr Name="UsedIn" Val="simulation"/>
+      </FileInfo>
+    </File>
+    <File Path="$PSRCDIR/sources_1/new/MAPS_ASIC_Behavioral.vhd">
+      <FileInfo>
+        <Attr Name="UsedIn" Val="synthesis"/>
+        <Attr Name="UsedIn" Val="simulation"/>
+      </FileInfo>
+    </File>
+    <Config>
+      <Option Name="DesignMode" Val="RTL"/>
+      <Option Name="TopModule" Val="MAPS_ASIC_Behavioral"/>
+      <Option Name="TopAutoSet" Val="TRUE"/>
+    </Config>
+  </FileSet>
+  <FileSet Name="constrs_in" Type="Constrs" RelSrcDir="$PSRCDIR/constrs_1">
+    <Filter Type="Constrs"/>
+    <Config>
+      <Option Name="ConstrsType" Val="XDC"/>
+    </Config>
+  </FileSet>
+  <FileSet Name="utils" Type="Utils" RelSrcDir="$PSRCDIR/utils_1">
+    <Filter Type="Utils"/>
+    <File Path="$PPRDIR/../MAPSASIC/MAPSASIC.srcs/utils_1/imports/synth_1/main.dcp">
+      <FileInfo>
+        <Attr Name="UsedIn" Val="synthesis"/>
+        <Attr Name="UsedIn" Val="implementation"/>
+        <Attr Name="UsedInSteps" Val="synth_1"/>
+        <Attr Name="AutoDcp" Val="1"/>
+      </FileInfo>
+    </File>
+    <Config>
+      <Option Name="TopAutoSet" Val="TRUE"/>
+    </Config>
+  </FileSet>
+  <Strategy Version="1" Minor="2">
+    <StratHandle Name="Vivado Synthesis Defaults" Flow="Vivado Synthesis 2022"/>
+    <Step Id="synth_design"/>
+  </Strategy>
+</GenRun>

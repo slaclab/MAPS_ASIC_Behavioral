@@ -1,0 +1,11 @@
+# compile vhdl design source files
+vhdl xil_defaultlib  \
+"../../../../MAPS_ASIC_Behavioral.srcs/sources_1/new/Pixel.vhd" \
+"../../../../MAPS_ASIC_Behavioral.srcs/sources_1/new/column.vhd" \
+"../../../../MAPS_ASIC_Behavioral.srcs/sources_1/new/main.vhd" \
+"../../../../MAPS_ASIC_Behavioral.srcs/sources_1/new/mux.vhd" \
+"../../../../MAPS_ASIC_Behavioral.srcs/sources_1/new/shiftreg.vhd" \
+"../../../../MAPS_ASIC_Behavioral.srcs/sim_1/new/main_test.vhd" \
+
+# Do not sort compile order
+nosort

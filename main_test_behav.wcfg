@@ -1,0 +1,82 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<wave_config>
+   <wave_state>
+   </wave_state>
+   <db_ref_list>
+      <db_ref path="main_test_behav.wdb" id="1">
+         <top_modules>
+            <top_module name="main_test" />
+         </top_modules>
+      </db_ref>
+   </db_ref_list>
+   <zoom_setting>
+      <ZoomStartTime time="0.000 ns"></ZoomStartTime>
+      <ZoomEndTime time="30.001 ns"></ZoomEndTime>
+      <Cursor1Time time="23.803 ns"></Cursor1Time>
+   </zoom_setting>
+   <column_width_setting>
+      <NameColumnWidth column_width="209"></NameColumnWidth>
+      <ValueColumnWidth column_width="99"></ValueColumnWidth>
+   </column_width_setting>
+   <WVObjectSize size="10" />
+   <wvobject fp_name="/main_test/InjRST_n_test" type="logic">
+      <obj_property name="DisplayName">label</obj_property>
+      <obj_property name="ElementShortName">InjRST_n_test</obj_property>
+      <obj_property name="ObjectShortName">InjRST_n_test</obj_property>
+      <obj_property name="label">InjRST_n</obj_property>
+   </wvobject>
+   <wvobject fp_name="/main_test/InjClk_test" type="logic">
+      <obj_property name="DisplayName">label</obj_property>
+      <obj_property name="ElementShortName">InjClk_test</obj_property>
+      <obj_property name="ObjectShortName">InjClk_test</obj_property>
+      <obj_property name="label">InjClk</obj_property>
+   </wvobject>
+   <wvobject fp_name="/main_test/InjDis_test" type="logic">
+      <obj_property name="DisplayName">label</obj_property>
+      <obj_property name="ElementShortName">InjDis_test</obj_property>
+      <obj_property name="ObjectShortName">InjDis_test</obj_property>
+      <obj_property name="label">InjDis</obj_property>
+   </wvobject>
+   <wvobject fp_name="/main_test/inj_test" type="logic">
+      <obj_property name="DisplayName">label</obj_property>
+      <obj_property name="ElementShortName">inj_test</obj_property>
+      <obj_property name="ObjectShortName">inj_test</obj_property>
+      <obj_property name="label">inj</obj_property>
+   </wvobject>
+   <wvobject fp_name="/main_test/selrst_n_test" type="logic">
+      <obj_property name="DisplayName">label</obj_property>
+      <obj_property name="ElementShortName">selrst_n_test</obj_property>
+      <obj_property name="ObjectShortName">selrst_n_test</obj_property>
+      <obj_property name="label">selrst_n</obj_property>
+   </wvobject>
+   <wvobject fp_name="/main_test/SelCk_test" type="logic">
+      <obj_property name="DisplayName">label</obj_property>
+      <obj_property name="ElementShortName">SelCk_test</obj_property>
+      <obj_property name="ObjectShortName">SelCk_test</obj_property>
+      <obj_property name="label">SelCk</obj_property>
+   </wvobject>
+   <wvobject fp_name="/main_test/rst_test" type="logic">
+      <obj_property name="DisplayName">label</obj_property>
+      <obj_property name="ElementShortName">rst_test</obj_property>
+      <obj_property name="ObjectShortName">rst_test</obj_property>
+      <obj_property name="label">rst</obj_property>
+   </wvobject>
+   <wvobject fp_name="/main_test/bline_n_test" type="logic">
+      <obj_property name="DisplayName">label</obj_property>
+      <obj_property name="ElementShortName">bline_n_test</obj_property>
+      <obj_property name="ObjectShortName">bline_n_test</obj_property>
+      <obj_property name="label">bline_n</obj_property>
+   </wvobject>
+   <wvobject fp_name="/main_test/latchrst_test" type="logic">
+      <obj_property name="DisplayName">label</obj_property>
+      <obj_property name="ElementShortName">latchrst_test</obj_property>
+      <obj_property name="ObjectShortName">latchrst_test</obj_property>
+      <obj_property name="label">latchrst</obj_property>
+   </wvobject>
+   <wvobject fp_name="/main_test/PixOut_test" type="logic">
+      <obj_property name="DisplayName">label</obj_property>
+      <obj_property name="ElementShortName">PixOut_test</obj_property>
+      <obj_property name="ObjectShortName">PixOut_test</obj_property>
+      <obj_property name="label">PixOut</obj_property>
+   </wvobject>
+</wave_config>
