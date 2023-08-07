@@ -1,14 +1,15 @@
-library IEEE;
-use IEEE.STD_LOGIC_1164.ALL;
+library ieee; 
+use ieee.std_logic_1164.all;
+use ieee.numeric_std.all;
+use std.textio.all;
+use ieee.std_logic_textio.all;
 
 entity main_test is
 end main_test;
 
 architecture Behavioral of main_test is
     component main
-    port(
-        --thr      : in std_logic_vector(2 downto 0);  (Not implemented yet)
-        
+    port(        
         InjRst_n   : in std_logic;  --disable injection in all, through main 
            
         SelCk      : in std_logic;  --push row wise
@@ -36,6 +37,11 @@ architecture Behavioral of main_test is
     signal latchrst_test : std_logic := '1';
     signal selrst_n_test : std_logic := '0';
     signal PixOut_test   : std_logic := '0';
+    
+    file output_buf      : text;
+    constant num_pixels  : integer := 576;
+    constant num_frames  : integer := 2; 
+    signal clk_count     : integer := 0;
     
 begin
     
@@ -69,7 +75,7 @@ end process reset;
 latchRst_proc : process
 begin
     latchRst_test <= '0';
-    wait for 10ns;
+    wait for 50ns;
     latchRst_test <= '1';
     wait for 4ns;
     latchRst_test <= '0';
@@ -79,7 +85,7 @@ end process latchRst_proc;
 bline_n_proc : process
 begin
     bline_n_test <= '0';
-    wait for 13.5ns;
+    wait for 53.5ns;
     bline_n_test <= '1';
     wait;
 end process bline_n_proc;
@@ -87,7 +93,7 @@ end process bline_n_proc;
 rstCSA_proc : process
 begin
     rst_test <= '0';
-    wait for 10ns;
+    wait for 50ns;
     rst_test <= '1';
     wait for 3ns;
     rst_test <= '0';
@@ -97,7 +103,7 @@ end process rstCSA_proc;
     clk : process
     begin
     wait for 2ns;
-        for i in 0 to 3 loop
+        for i in 0 to 23 loop
             InjClk_test <= '1'; 
             wait for 1 ns;
             InjClk_test <= '0'; 
@@ -108,31 +114,49 @@ end process rstCSA_proc;
     
     injdata : process
     begin
---        injdis_test <= '0';
---        wait for 14 ns;
-        injdis_test <= '0';
-        wait for 10 ns;
-        injdis_test <= '0';
+    wait for 2 ns;
+            for i in 0 to 23 loop
+                injdis_test <= '1';
+                wait for 2 ns;
+                injdis_test <= '0';
+                wait for 2 ns;
+            end loop;
         wait;
     end process injdata;
 
     injection : process
     begin
         inj_test <= '0';
-        wait for 16 ns;
+        wait for 56 ns;
         inj_test <= '1';
         wait;
     end process injection;
     
     selck : process
     begin
-        wait for 20 ns;
-            for i in 0 to (24*24+4) loop
+        wait for 60 ns;
+            for i in 0 to (num_pixels*num_frames-1) loop
                 selCk_test <= '1'; 
                 wait for 1 ns;
                 selCk_test <= '0'; 
                 wait for 1 ns;
+                    if (clk_count = (num_pixels*num_frames-1)) then
+                        file_close(output_buf);
+                        wait;
+                    else
+                        clk_count <= clk_count + 1;
+                    end if;
             end loop;
         wait; 
-    end process selck;       
+    end process selck;
+    
+    file_open(output_buf, "C:\Users\ahmcg\Desktop\School\Internship\VHDL\Practice\PixOutWrite.txt", write_mode);
+    pixWrite : process(selck_test)
+    variable write_col_to_output_buf : line;
+    begin
+    if rising_edge(selCk_test) then
+        write(write_col_to_output_buf, pixOut_test);
+        writeline(output_buf, write_col_to_output_buf);
+    end if;
+    end process pixWrite;       
 end Behavioral;

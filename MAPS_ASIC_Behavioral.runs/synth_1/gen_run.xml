@@ -1,14 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <GenRun Id="synth_1" LaunchPart="xcku5p-ffvb676-2-e" LaunchTime="1690574099" LaunchIncrCheckpoint="$PPRDIR/../MAPSASIC/MAPSASIC.srcs/utils_1/imports/synth_1/main.dcp">
   <File Type="PA-TCL" Name="MAPS_ASIC_Behavioral.tcl"/>
-  <File Type="RDS-PROPCONSTRS" Name="MAPS_ASIC_Behavioral_drc_synth.rpt"/>
   <File Type="REPORTS-TCL" Name="MAPS_ASIC_Behavioral_reports.tcl"/>
   <File Type="RDS-RDS" Name="MAPS_ASIC_Behavioral.vds"/>
-  <File Type="RDS-UTIL" Name="MAPS_ASIC_Behavioral_utilization_synth.rpt"/>
-  <File Type="RDS-UTIL-PB" Name="MAPS_ASIC_Behavioral_utilization_synth.pb"/>
   <File Type="RDS-DCP" Name="MAPS_ASIC_Behavioral.dcp"/>
-  <File Type="VDS-TIMINGSUMMARY" Name="MAPS_ASIC_Behavioral_timing_summary_synth.rpt"/>
-  <File Type="VDS-TIMING-PB" Name="MAPS_ASIC_Behavioral_timing_summary_synth.pb"/>
   <FileSet Name="sources" Type="DesignSrcs" RelSrcDir="$PSRCDIR/sources_1" RelGenDir="$PGENDIR/sources_1">
     <Filter Type="Srcs"/>
     <File Path="$PSRCDIR/sources_1/new/Pixel.vhd">
