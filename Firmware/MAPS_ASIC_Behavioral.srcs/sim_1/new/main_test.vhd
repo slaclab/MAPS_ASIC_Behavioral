@@ -9,21 +9,26 @@ end main_test;
 
 architecture Behavioral of main_test is
     component main
+    generic(
+        ROWS_G     : positive := 24;
+        COLS_G     : positive := 24;
+        BITS_G     : positive := 5 -- 2^BITS_C needs to be greater than ROWS_C or COLS_C
+    );
     port(        
-        InjRst_n   : in std_logic;  --disable injection in all, through main 
+        InjRst_n   : in std_logic;
            
-        SelCk      : in std_logic;  --push row wise
+        SelCk      : in std_logic;
         
-        selRst_n   : in std_logic;  --set to 0,0; reset counter inside selck splitter
-        InjClk     : in std_logic;  --combined with injdis in shiftreg      
-        InjDis     : in std_logic;  --combined with injclk in shiftreg
-        Inj        : in std_logic;  --inject in all enable columns
+        selRst_n   : in std_logic;
+        InjClk     : in std_logic;     
+        InjDis     : in std_logic;
+        Inj        : in std_logic;
         
-        bline_n    : in std_logic; --PixRST passthrough
-        latchRST   : in std_logic; --PixRST passthrough
-        rst        : in std_logic; --PixRST passthrough
+        bline_n    : in std_logic;
+        latchRST   : in std_logic;
+        rst        : in std_logic;
         
-        PixOut     : out std_logic -- Goal    
+        PixOut     : out std_logic   
         );        
     end component main;
     
@@ -40,12 +45,18 @@ architecture Behavioral of main_test is
     
     file output_buf      : text;
     constant num_pixels  : integer := 576;
-    constant num_frames  : integer := 1000; 
+    constant num_frames  : integer := 1; 
     signal clk_count     : integer := 0;
     
 begin
     
-    uut: main port map (
+    uut: main 
+--        generic map (
+--        ROWS_G => ROWS_G,
+--        COLS_G => COLS_G,
+--        BITS_G => BITS_G
+--        )
+        port map (
         selCk    => selCk_test,
         injclk   => injclk_test,
         injdis   => injdis_test,
@@ -116,9 +127,9 @@ end process rstCSA_proc;
     begin
     wait for 2 ns;
             for i in 0 to 23 loop
-                injdis_test <= '1';
-                wait for 2 ns;
                 injdis_test <= '0';
+                wait for 2 ns;
+                injdis_test <= '1';
                 wait for 2 ns;
             end loop;
         wait;

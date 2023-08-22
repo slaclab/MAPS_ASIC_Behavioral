@@ -24,7 +24,7 @@ begin
         output <= (others => '1');
         count := 0;
     elsif rising_edge(clk) then
-        output(count)<= input;-- after 1ns;
+        output(count)<= input;
         count := count+1;
         if count = WIDTH then
             count := 0;

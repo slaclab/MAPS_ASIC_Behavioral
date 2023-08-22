@@ -2,11 +2,16 @@ library IEEE;
 use IEEE.STD_LOGIC_1164.ALL;
 
 entity main is
+    generic(
+        ROWS_G     : positive := 24;
+        COLS_G     : positive := 24;
+        BITS_G     : positive := 5 -- 2^BITS_C needs to be greater than ROWS_C or COLS_C
+        ); 
     port(        
-        InjRst_n   : in std_logic;  --disable injection in all, through main Active Low
-        selRst_n   : in std_logic;  --set to 0,0; reset counter inside selck splitter Active Low
+        InjRst_n   : in std_logic;  --disable injection in all, Active Low
+        selRst_n   : in std_logic;  --sets pixel output to 0,0 pixel, Active Low
                 
-        SelCk      : in std_logic;  --push row wise
+        SelCk      : in std_logic;  --advance which pixel selected in a row
         
         InjClk     : in std_logic;  --combined with injdis in shiftreg      
         InjDis     : in std_logic;  --combined with injclk in shiftreg
@@ -16,16 +21,17 @@ entity main is
         latchRST   : in std_logic; --PixRST passthrough Active High
         rst        : in std_logic; --PixRST passthrough Active High
         
-        PixOut     : out std_logic -- Goal    
+        PixOut     : out std_logic -- Serial digital output    
     );        
 end main;
 
 architecture Behavioral of main is
 
+-- shift register, takes in injdis and injclk to feed inj_en to the pixels
 component shiftreg is
     generic (
-        WIDTH       : positive := 24;
-        SELECT_BITS : positive := 5
+        WIDTH       : positive := ROWS_G;
+        SELECT_BITS : positive := BITS_G
     );
     Port (
         input  : in std_logic;
@@ -48,10 +54,12 @@ component column is
     );
 end component column;
 
+--mux component for use in scanning array
 component mux is
     generic (
-        WIDTH       : positive := 24;
-        SELECT_BITS : positive := 5;
+        WIDTH       : positive := ROWS_G;
+        SELECT_BITS : positive := BITS_G;
+        MAX_COUNT   : positive := ROWS_G;
         CLK_CYCLES  : positive := 0
     );
     port(
@@ -86,6 +94,10 @@ gen_column : for i in 0 to 23 generate
 end generate gen_column;
 
 shiftreg_inst : shiftreg
+    generic map(
+        WIDTH       => ROWS_G,
+        SELECT_BITS => BITS_G
+    )
     port map(
         input  => injDis,
         clk    => injClk,
@@ -95,8 +107,9 @@ shiftreg_inst : shiftreg
     
 mux_inst: mux
     generic map(
-        WIDTH       =>  24,
-        SELECT_BITS =>  5,
+        WIDTH       =>  COLS_G,
+        SELECT_BITS =>  BITS_G,
+        MAX_COUNT   => COLS_G,
         CLK_CYCLES  =>  1
     )
     port map(

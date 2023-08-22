@@ -15,6 +15,7 @@ entity column is
 end entity column;
 
 architecture Behavioral of column is
+
 component pixel is
     port (
         inj       : in std_logic;
@@ -25,6 +26,7 @@ component pixel is
     );
 end component pixel;
 
+--mux for scanning rows, each pixel output is one mux input, mux changes select after entire row has been scanned
 component mux is
     generic (
         WIDTH       : positive := 24;
