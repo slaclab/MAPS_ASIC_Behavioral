@@ -58,16 +58,16 @@ end component main;
 begin
 main_inst: main
     port map(
-        Injrst_n => injrst_n,
-        selrst_n => selrst_n,
-        selck => selck,
-        injclk => injclk,
-        injdis => injdis,
-        inj => inj,
-        bline_n => bline_n,
-        latchrst => latchrst,
-        rst => rst,
-        pixout => pixout
+        Injrst_n    => injrst_n,
+        selrst_n    => selrst_n,
+        selck       => selck,
+        injclk      => injclk,
+        injdis      => injdis,
+        inj         => inj,
+        bline_n     => bline_n,
+        latchrst    => latchrst,
+        rst         => rst,
+        pixout      => pixout
     );
 
 

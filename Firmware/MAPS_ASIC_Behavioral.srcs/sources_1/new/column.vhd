@@ -34,7 +34,7 @@ component pixel is
     port (
         inj       : in std_logic;
         inj_en    : in std_logic;
-        rstCSA       : in std_logic;
+        rstCSA    : in std_logic;
         latchRST  : in std_logic;
         pixelOut  : out std_logic
     );
@@ -63,7 +63,7 @@ gen_pixel : for i in 0 to 23 generate
         port map(
             inj      => inj,
             inj_en   => inj_en,
-            rstCSA      => rstCSA,
+            rstCSA   => rstCSA,
             latchRST => latchRST,
             pixelOut => pix_output_array(i)
             );

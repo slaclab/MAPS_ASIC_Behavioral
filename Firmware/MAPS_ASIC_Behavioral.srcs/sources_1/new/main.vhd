@@ -85,15 +85,15 @@ component mux is
 end component mux;
 
 -- temp signals
-    signal inj_en        : std_logic_vector(23 downto 0);
-    signal col_out_array : std_logic_vector(23 downto 0);
-    signal PixOut_n    : std_logic;
+    signal inj_en           : std_logic_vector(COLS_G-1 downto 0);
+    signal col_out_array    : std_logic_vector(COLS_G-1 downto 0);
+    signal PixOut_n         : std_logic;
 
 begin
 
 PixOut <= (PixOut_n);
 
-gen_column : for i in 0 to 23 generate
+gen_column : for i in 0 to COLS_G-1 generate
     column_inst : column
         port map(
         Inj      => inj,
@@ -121,10 +121,10 @@ shiftreg_inst : shiftreg
     
 mux_inst: mux
     generic map(
-        WIDTH       =>  COLS_G,
-        SELECT_BITS =>  BITS_G,
+        WIDTH       => COLS_G,
+        SELECT_BITS => BITS_G,
         MAX_COUNT   => COLS_G,
-        CLK_CYCLES  =>  1
+        CLK_CYCLES  => 1
     )
     port map(
         input  => col_out_array,
