@@ -1,22 +1,16 @@
-----------------------------------------------------------------------------------
--- Company: 
--- Engineer: 
--- 
--- Create Date: 07/28/2023 12:51:53 PM
--- Design Name: 
--- Module Name: MAPS_ASIC_Behavioral - Behavioral
--- Project Name: 
--- Target Devices: 
--- Tool Versions: 
--- Description: 
--- 
--- Dependencies: 
--- 
--- Revision:
--- Revision 0.01 - File Created
--- Additional Comments:
--- 
-----------------------------------------------------------------------------------
+-------------------------------------------------------------------------------
+-- Company    : SLAC National Accelerator Laboratory
+-------------------------------------------------------------------------------
+-- Description: MAPS_ASIC_Behavioral.vhd
+-------------------------------------------------------------------------------
+-- This file is part of 'MAPS_ASIC_Behavioral'.
+-- It is subject to the license terms in the LICENSE.txt file found in the
+-- top-level directory of this distribution and at:
+--    https://confluence.slac.stanford.edu/display/ppareg/LICENSE.html.
+-- No part of 'MAPS_ASIC_Behavioral', including this file,
+-- may be copied, modified, propagated, or distributed except according to
+-- the terms contained in the LICENSE.txt file.
+------------------------------------------------------------------------------
 
 
 library IEEE;
