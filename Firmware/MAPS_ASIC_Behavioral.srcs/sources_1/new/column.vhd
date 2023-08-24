@@ -1,3 +1,17 @@
+-------------------------------------------------------------------------------
+-- Company    : SLAC National Accelerator Laboratory
+-------------------------------------------------------------------------------
+-- Description: column.vhd
+-------------------------------------------------------------------------------
+-- This file is part of 'MAPS_ASIC_Behavioral'.
+-- It is subject to the license terms in the LICENSE.txt file found in the
+-- top-level directory of this distribution and at:
+--    https://confluence.slac.stanford.edu/display/ppareg/LICENSE.html.
+-- No part of 'MAPS_ASIC_Behavioral', including this file,
+-- may be copied, modified, propagated, or distributed except according to
+-- the terms contained in the LICENSE.txt file.
+------------------------------------------------------------------------------
+
 library IEEE;
 use IEEE.STD_LOGIC_1164.ALL;
 
@@ -20,7 +34,7 @@ component pixel is
     port (
         inj       : in std_logic;
         inj_en    : in std_logic;
-        rstCSA       : in std_logic;
+        rstCSA    : in std_logic;
         latchRST  : in std_logic;
         pixelOut  : out std_logic
     );
@@ -49,7 +63,7 @@ gen_pixel : for i in 0 to 23 generate
         port map(
             inj      => inj,
             inj_en   => inj_en,
-            rstCSA      => rstCSA,
+            rstCSA   => rstCSA,
             latchRST => latchRST,
             pixelOut => pix_output_array(i)
             );
